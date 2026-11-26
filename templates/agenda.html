@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block titulo %}Minha agenda — InfoCaps{% endblock %}
+{% block corpo %}
+<main class="sec"><div class="wrap">
+  <h2 class="esq">Minha Agenda</h2>
+  <p class="sub esq">Olá, {{ nome_usuario }}. A agenda é um registro pessoal: o InfoCaps não marca nem cancela consultas no CAPS.</p>
+  <div class="duas ag">
+    <form method="post" class="caixa"><input type="hidden" name="csrf" value="{{ csrf() }}"><h3>Adicionar consulta</h3>
+      <label for="dh">Data e hora</label><input id="dh" name="data_hora" type="datetime-local" required>
+      <label for="un">Unidade</label><select id="un" name="unidade" required>{% for u in unidades %}<option value="{{ u.id }}">{{ u.nome }}</option>{% endfor %}</select>
+      <label for="tp">Tipo de atendimento</label><select id="tp" name="tipo">{% for t in tipos %}<option>{{ t }}</option>{% endfor %}</select>
+      <button class="btn cheio">Adicionar</button></form>
+    <div class="caixa"><div class="cab"><h3>Próximos compromissos</h3><a class="btn pequeno claro" href="{{ url_for('relatorio') }}">Baixar relatório (CSV)</a></div>
+      {% for c in consultas %}
+      <div class="card consulta"><div><b>{{ c.data_hora[8:10] }}/{{ c.data_hora[5:7] }}/{{ c.data_hora[:4] }} às {{ c.data_hora[11:] }}</b><small>{{ c.unidade }} · {{ c.tipo_atendimento }}</small></div>
+        <form method="post" action="{{ url_for('mudar_status', cid=c.id) }}" class="inline"><input type="hidden" name="csrf" value="{{ csrf() }}">
+          <select name="status" aria-label="Situação">{% for s in status %}<option {{ 'selected' if s == c.status }}>{{ s }}</option>{% endfor %}</select><button class="btn pequeno claro">Salvar</button></form>
+        <form method="post" action="{{ url_for('excluir', cid=c.id) }}" class="inline"><input type="hidden" name="csrf" value="{{ csrf() }}"><button class="btn pequeno claro">Excluir</button></form></div>
+      {% else %}<p>Nenhuma consulta registrada ainda.</p>{% endfor %}
+    </div>
+  </div>
+  <form method="post" action="{{ url_for('excluir_conta') }}" class="rodape-ag"><input type="hidden" name="csrf" value="{{ csrf() }}"><button class="btn pequeno claro">Excluir minha conta e meus dados</button></form>
+</div></main>
+{% endblock %}

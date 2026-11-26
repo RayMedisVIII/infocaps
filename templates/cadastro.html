@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block titulo %}Cadastro — InfoCaps{% endblock %}
+{% block corpo %}
+<main class="fundo-auth"><div class="auth">
+  <span class="selo grande">IC</span>
+  <h1>Crie sua conta</h1><p class="sub">Para usar a agenda de consultas. O conteúdo do site é livre, sem cadastro.</p>
+  <form method="post"><input type="hidden" name="csrf" value="{{ csrf() }}">
+    <label for="nome">Nome ou apelido</label><input id="nome" name="nome" maxlength="80" required autocomplete="nickname">
+    <label for="email">E-mail</label><input id="email" name="email" type="email" required autocomplete="email">
+    <label for="senha">Senha</label><input id="senha" name="senha" type="password" minlength="8" required autocomplete="new-password" placeholder="Mínimo 8 caracteres, com letras e números">
+    <label for="senha2">Repita a senha</label><input id="senha2" name="senha2" type="password" minlength="8" required autocomplete="new-password">
+    <label class="aceite"><input type="checkbox" name="aceite" required><span>Li e aceito o <a href="{{ url_for('termo') }}" target="_blank">termo de uso</a> e declaro ter 18 anos ou mais.</span></label>
+    <button class="btn cheio">Criar conta</button>
+  </form>
+  <p class="centro">Já tem conta? <a href="{{ url_for('login') }}">Entrar</a></p>
+</div></main>
+{% endblock %}

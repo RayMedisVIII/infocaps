@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block titulo %}Termo de uso — InfoCaps{% endblock %}
+{% block corpo %}
+<main class="sec"><div class="wrap texto">
+  <h2 class="esq">Termo de uso e privacidade</h2><p class="peq">Versão {{ versao }} · Projeto acadêmico da Fatec Botucatu (Projeto Integrador).</p>
+  <h3>1. O que é o InfoCaps</h3><p>Site informativo sobre os Centros de Atenção Psicossocial (CAPS) e as Unidades Básicas de Saúde (UBS). O InfoCaps não presta atendimento, não faz diagnóstico nem orientação clínica e não marca, confirma ou cancela consultas.</p>
+  <h3>2. Em caso de crise</h3><p>Em risco imediato à vida, ligue para o SAMU (192) ou procure um pronto-socorro. O CVV atende pelo 188, 24 horas, gratuitamente.</p>
+  <h3>3. Quem pode se cadastrar</h3><p>Pessoas com 18 anos ou mais. A navegação pelo conteúdo é livre e não exige cadastro.</p>
+  <h3>4. Dados que coletamos</h3><p>Nome ou apelido, e-mail, senha (guardada apenas em forma de hash, nunca em texto) e as consultas que você mesmo registra na agenda (data, unidade, tipo de atendimento e situação). Também guardamos a data e a versão deste aceite. Não pedimos CPF, endereço, diagnóstico nem medicação.</p>
+  <h3>5. Para que usamos</h3><p>Somente para identificar você e montar a sua agenda pessoal. Não vendemos, não compartilhamos e não usamos seus dados para publicidade.</p>
+  <h3>6. Seus direitos (LGPD)</h3><p>Você pode acessar seus dados, baixar a sua agenda em CSV e pedir a exclusão da conta e das consultas, conforme a Lei nº 13.709/2018. Como os dados de agenda revelam atendimento em saúde, tratamos esses dados como sensíveis e o acesso é restrito ao próprio usuário.</p>
+  <h3>7. Responsabilidades</h3><p>Você é responsável pelo sigilo da sua senha. O conteúdo informativo segue as normas do Ministério da Saúde, mas pode mudar; confirme dados de unidades com o serviço.</p>
+  <h3>8. Aceite</h3><p>Ao marcar a caixa de aceite no cadastro, você declara que leu e concorda com este termo.</p>
+  <p><a class="btn pequeno" href="{{ url_for('cadastro') }}">Voltar ao cadastro</a></p>
+</div></main>
+{% endblock %}

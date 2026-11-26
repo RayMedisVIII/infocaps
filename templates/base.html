@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block titulo %}InfoCaps{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{% set h = url_for('index') %}
+<header class="topo">
+  <div class="wrap barra">
+    <a class="logo" href="{{ h }}"><span class="selo">IC</span> InfoCaps</a>
+    <nav>
+      <a href="{{ h }}#inicio">Início</a>
+      <a href="{{ h }}#sobre">O que é o CAPS?</a>
+      <a href="{{ h }}#importancia">Qual a importância?</a>
+      <a href="{{ h }}#quando">Quando ir ao CAPS</a>
+      <a href="{{ h }}#ubs">Posto de Saúde</a>
+      <a href="{{ h }}#agenda">Minha Agenda</a>
+      <a href="{{ h }}#encontrar">Onde encontrar</a>
+    </nav>
+    {% if logado %}
+    <form method="post" action="{{ url_for('sair') }}" class="inline"><input type="hidden" name="csrf" value="{{ csrf() }}"><a class="btn pequeno" href="{{ url_for('agenda') }}">Minha agenda</a> <button class="btn pequeno claro">Sair</button></form>
+    {% else %}
+    <a class="btn pequeno" href="{{ url_for('login') }}">Entrar</a>
+    {% endif %}
+  </div>
+</header>
+{% with msgs = get_flashed_messages(with_categories=true) %}{% for c, m in msgs %}
+<div class="wrap aviso {{ c }}">{{ m }}</div>{% endfor %}{% endwith %}
+{% block corpo %}{% endblock %}
+<footer class="rodape">
+  <div class="wrap grade4">
+    <div><b class="logo-b">InfoCaps</b><p>Informação, apoio e cuidado para a saúde mental. Projeto acadêmico de conscientização sobre os serviços do SUS.</p></div>
+    <div><h4>Conteúdo</h4><a href="{{ h }}#sobre">O que é o CAPS?</a><a href="{{ h }}#quando">Quando ir ao CAPS</a><a href="{{ h }}#ubs">Posto de Saúde</a><a href="{{ h }}#encontrar">Onde encontrar</a><a href="{{ url_for('termo') }}">Termo de uso</a></div>
+    <div><h4>Recursos úteis</h4><span>Ministério da Saúde</span><span>Lei nº 10.216/2001</span><span>Portaria GM/MS nº 3.088/2011</span></div>
+    <div><h4>Emergências</h4><a href="tel:188">CVV 188</a><a href="tel:192">SAMU 192</a><a href="tel:193">Bombeiros 193</a></div>
+  </div>
+  <p class="wrap copia">© 2026 InfoCaps — Projeto acadêmico, Fatec Botucatu.</p>
+</footer>
+</body>
+</html>
