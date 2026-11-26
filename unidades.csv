@@ -1,7 +1,26 @@
 nome,tipo,modalidade,bairro,telefone
-CAPS II Centro (exemplo),CAPS,CAPS II,Centro,
-CAPS AD Norte (exemplo),CAPS,CAPS AD,Zona Norte,
-CAPS III 24h Sul (exemplo),CAPS,CAPS III,Zona Sul,
-CAPSi Infância (exemplo),CAPS,CAPS i,Centro,
-UBS Vila Nova (exemplo),UBS,,Vila Nova,
-UBS Jardim Paulista (exemplo),UBS,,Jardim Paulista,
+CAPS AD II Renascer,CAPS,CAPS AD,Centro,(14) 3815-9104
+CSE Unidade Vila Ferroviária (UVF),UBS,,Vila Ferroviária,(14) 3880-1883
+CSE Unidade Vila dos Lavradores (UVL),UBS,,Vila dos Lavradores,(14) 3880-1775
+Espaço Saúde,UBS,,Centro,(14) 3811-1602
+UBS Cecap,UBS,,Cecap,(14) 3811-4910
+UBS Cohab I,UBS,,Cohab I,(14) 3811-4902
+UBS CS1,UBS,,Boa Vista,(14) 3811-4900
+UBS Jardim Cristina,UBS,,Jardim Cristina,(14) 3811-4906
+UBS São Lucio,UBS,,Vila São Lucio,(14) 3811-1617
+UBS Vila Jardim,UBS,,Vila Jardim,(14) 3811-4901
+USF Cachoeirinha,UBS,,Res. Arlindo Durante,(14) 3811-4918
+USF Caimã,UBS,,Residencial Caimã,(14) 3811-1540
+USF César Neto,UBS,,Anhumas,(14) 3811-1507
+USF Cohab IV,UBS,,Jardim Bandeirantes,(14) 3811-4904
+USF Comerciários,UBS,,Comerciários,(14) 3811-4903
+USF Jardim Aeroporto,UBS,,Jardim Aeroporto,(14) 3811-4912
+USF Jardim Iolanda,UBS,,Jardim Iolanda,(14) 3811-1611
+USF Jardim Peabiru,UBS,,Jardim Peabiru,(14) 3811-4905
+USF Jardim Santa Elisa,UBS,,Jardim Santa Elisa,(14) 3811-4909
+USF Lavapés,UBS,,Lavapés,(14) 3811-1519
+USF Marajoara,UBS,,Parque Marajoara,(14) 3811-4911
+USF Real Park,UBS,,Jardim Continental,(14) 3811-4907
+USF Rubião Junior,UBS,,Jardim Nossa Senhora das Graças,(14) 3811-4908
+USF Santa Maria,UBS,,Jardim Santa Maria,(14) 3811-4913
+USF Vitoriana,UBS,,Distrito de Vitoriana,(14) 3811-1424

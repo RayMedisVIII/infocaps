@@ -93,7 +93,7 @@
 
 <section id="encontrar" class="sec cinza"><div class="wrap">
   <span class="tag">Encontre perto de você</span><h2>Onde encontrar CAPS e Postos de Saúde</h2>
-  <p class="sub">Localize as unidades de saúde mental e atenção básica. Todos os serviços são gratuitos pelo SUS. <b>Lista de exemplo: os dados reais virão do CNES.</b></p>
+  <p class="sub">Localize as unidades de saúde mental e atenção básica. Todos os serviços são gratuitos pelo SUS.</p>
   <form class="busca" method="get" action="{{ url_for('index') }}#encontrar">
     <input name="q" value="{{ q }}" placeholder="Buscar por nome ou bairro…" aria-label="Buscar">
     <button class="btn pequeno {{ '' if not tipo else 'claro' }}" name="tipo" value="">Todos</button>
