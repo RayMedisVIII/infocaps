@@ -6,18 +6,23 @@ from flask import (Flask, Response, abort, flash, g, redirect, render_template,
 from werkzeug.security import check_password_hash, generate_password_hash
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-DB = os.path.join(BASE, "infocaps.db")
+NUVEM = bool(os.environ.get("VERCEL"))  # na Vercel o disco é só de leitura; só /tmp aceita escrita
+DB = "/tmp/infocaps.db" if NUVEM else os.path.join(BASE, "infocaps.db")
 TERMO_VERSAO = "1.0"
 TIPOS = ["Acolhimento", "Consulta individual", "Grupo", "Oficina", "Outro"]
 STATUS = ["Agendada", "Realizada", "Cancelada", "Não compareceu"]
 
 app = Flask(__name__)
 app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Lax",
-                  PERMANENT_SESSION_LIFETIME=1800)  # sessão expira em 30 min
+                  PERMANENT_SESSION_LIFETIME=1800,  # sessão expira em 30 min
+                  SESSION_COOKIE_SECURE=NUVEM)  # na nuvem o site usa HTTPS
 key_file = os.path.join(BASE, ".secret_key")
-if not os.path.exists(key_file):
-    open(key_file, "w").write(secrets.token_hex(32))
-app.secret_key = open(key_file).read()
+if os.environ.get("SECRET_KEY"):  # na Vercel: variável de ambiente
+    app.secret_key = os.environ["SECRET_KEY"]
+else:
+    if not os.path.exists(key_file):
+        open(key_file, "w").write(secrets.token_hex(32))
+    app.secret_key = open(key_file).read()
 
 
 def db():
