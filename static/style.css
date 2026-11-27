@@ -82,3 +82,4 @@ input,select{width:100%;padding:10px 12px;border:1px solid #d7d3ee;border-radius
 .rodape h4{color:#fff;margin:0 0 8px}.rodape p{font-size:.85rem}.logo-b{color:#fff;font-size:1.1rem}
 .copia{border-top:1px solid #38345a;padding-top:14px;margin-top:20px;font-size:.78rem}
 @media(max-width:800px){.hero-grade,.duas,.grade3{grid-template-columns:1fr}.grade4,.stats{grid-template-columns:1fr 1fr}.ilus{display:none}nav{justify-content:flex-start}.tipos{grid-template-columns:1fr}}
+@media(max-width:800px){.topo{position:static}.logo{flex:1}nav{order:3;flex:0 0 100%;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}}
